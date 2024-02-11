@@ -1,0 +1,49 @@
+* {
+    user-select: none;
+    outline: none;
+  }
+  .list-tag {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .spantext {
+    overflow: auto;
+  }
+  .subdiv {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+  }
+  .editbtn {
+    border: none;
+    border-radius: 20px;
+    background-color: #0d6efd;
+    padding: 5px;
+    width: 70px;
+    color: white;
+    height: 35px;
+  }
+  .editbtn:hover {
+    background-color: red;
+  }
+  .editbtn1 {
+    border: 1px solid rgb(118, 115, 115);
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 5px;
+    width: 70px;
+    color: rgb(19, 16, 16);
+    height: 35px;
+  }
+  .editbtn1:hover {
+    background-color: rgb(36, 215, 83);
+    color: white;
+  }
+  
