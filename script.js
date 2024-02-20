@@ -71,7 +71,6 @@
 //   }
 // });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const text = document.getElementById("text");
   const addBt = document.getElementById("addtask");
@@ -83,17 +82,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (getText !== "") {
       text.value = "";
 
-         let tasks = JSON.parse(localStorage.getItem("tasks"))
+      let tasks = JSON.parse(localStorage.getItem("tasks"));
       tasks.push({ text: getText });
       localStorage.setItem("tasks", JSON.stringify(tasks));
-     
+
       createtask(getText);
     }
   });
 
   window.onload = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
-    tasks.forEach(task => createtask(task.text));
+    tasks.forEach((task) => createtask(task.text));
   };
 
   function createtask(getText) {
@@ -130,8 +129,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function deleteFunction(newdi) {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
     const taskText = newdi.querySelector(".spantext").textContent;
-    const updatedTasks = tasks.filter(task => task.text !== taskText);
-   
+    const updatedTasks = tasks.filter((task) => task.text !== taskText);
+
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     newdi.remove();
   }
@@ -142,8 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (promp !== null) {
       const promtFunc = Change.querySelector("span");
       promtFunc.textContent = promp;
-
-      
     }
   }
 });
