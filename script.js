@@ -9,12 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (getText !== "") {
       text.value = "";
 
-      let tasks = JSON.parse(localStorage.getItem("tasks"));
-      if (tasks) {
-        tasks.push({ text: getText });
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+      if(tasks){
+        tasks.push({text : getText});
         localStorage.setItem("tasks", JSON.stringify(tasks));
+  
       }
-
+     
       createtask(getText);
     }
   });
