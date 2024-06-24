@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function editFunction(Change) {
     const promp = prompt(`Change your Task Here`);
 
-    if (promp !== null) {
+    if (promp) {
       const promtFunc = Change.querySelector("span").textContent;
       let data = JSON.parse(localStorage.getItem("tasks"));
 
