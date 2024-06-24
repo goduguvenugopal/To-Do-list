@@ -1,4 +1,3 @@
- 
 document.addEventListener("DOMContentLoaded", function () {
   const text = document.getElementById("text");
   const addBt = document.getElementById("addtask");
@@ -11,8 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
       text.value = "";
 
       let tasks = JSON.parse(localStorage.getItem("tasks"));
-      tasks.push({ text: getText });
-      localStorage.setItem("tasks", JSON.stringify(tasks));
+      if (tasks) {
+        tasks.push({ text: getText });
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
 
       createtask(getText);
     }
@@ -20,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.onload = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
-    tasks.forEach((task) => createtask(task.text));
+    if (tasks) {
+      tasks.forEach((task) => createtask(task.text));
+    }
   };
 
   function createtask(getText) {
