@@ -9,13 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (getText !== "") {
       text.value = "";
 
-      let tasks = JSON.parse(localStorage.getItem("tasks")) || []
-      if(tasks){
-        tasks.push({text : getText});
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      if (tasks) {
+        tasks.push({ text: getText });
         localStorage.setItem("tasks", JSON.stringify(tasks));
-  
       }
-     
+
       createtask(getText);
     }
   });
@@ -71,8 +70,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const promp = prompt(`Change your Task Here`);
 
     if (promp !== null) {
-      const promtFunc = Change.querySelector("span");
-      promtFunc.textContent = promp;
+      const promtFunc = Change.querySelector("span").textContent;
+      let data = JSON.parse(localStorage.getItem("tasks"));
+      data = data.map((item) => {
+        if (item.text === promtFunc) {
+          return {text : promp}
+        }
+        return item;
+      });
+      localStorage.setItem("tasks", JSON.stringify(data));
+      promtFunc.textContent = data;
+      Change.querySelector("span").textContent = promp;
     }
   }
 });
